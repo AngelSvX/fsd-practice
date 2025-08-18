@@ -24,7 +24,7 @@ function Users() {
     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       {userList.map((u) => {
         return (
-          <li key={u.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md hover:bg-black/5 transition-shadow duration-200 cursor-pointer flex items-end justify-between">
+          <li key={u.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md hover:bg-black/5 transition-shadow duration-200 cursor-pointer space-y-4">
             <div className="space-y-3">
               <p className="text-lg font-semibold text-gray-900">
                 <span className="text-gray-600 font-normal">Nombre:</span> {u.name}

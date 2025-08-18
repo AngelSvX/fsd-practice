@@ -1,9 +1,10 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Countrie, CountriesState } from "./types";
+import type { Countrie, CountriesState, Region } from "./types";
 import { fetchCountries } from "./thunks";
 
 export const initialState: CountriesState = {
   countrieList: [],
+  selectedRegion: "Europe" ,
   selectedCountrie: null,
   loading: false,
   error: null
@@ -12,7 +13,11 @@ export const initialState: CountriesState = {
 export const countriesSlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {},
+  reducers: {
+    setRegion: (state, action: PayloadAction<Region>) => {
+      state.selectedRegion = action.payload
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCountries.pending, (state) => {
@@ -30,4 +35,5 @@ export const countriesSlice = createSlice({
   }
 })
 
+export const { setRegion } = countriesSlice.actions
 export default countriesSlice.reducer

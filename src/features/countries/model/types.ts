@@ -30,9 +30,13 @@ export interface Countrie {
  }
 }
 
+export type Region = "America" | "Africa" | "Europe" | "Asia" | "Oceania"
+
 export interface CountriesState {
   countrieList: Countrie[];
+  selectedRegion: Region
   selectedCountrie: Countrie | null;
   loading: boolean;
   error: string | null;
 }
+
