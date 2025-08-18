@@ -1,10 +1,12 @@
 
 import userReducer from '../../features/users/model/slice'
+import countrieReducer from '../../features/countries/model/slice'
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
   reducer: {
-    user: userReducer
+    user: userReducer,
+    countrie: countrieReducer
   }
 })
 
