@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Countrie, CountriesState, Region } from "./types";
-import { fetchCountries } from "./thunks";
+import { fetchCountrie, fetchCountries } from "./thunks";
 
 export const initialState: CountriesState = {
   countrieList: [],
@@ -31,6 +31,19 @@ export const countriesSlice = createSlice({
       .addCase(fetchCountries.rejected, (state) => {
         state.loading = false,
         state.error = "An Error has rejected fetching Countries"
+      })
+    builder
+      .addCase(fetchCountrie.pending, (state) => {
+        state.loading = true,
+        state.error = null
+      })
+      .addCase(fetchCountrie.fulfilled, (state, action : PayloadAction<Countrie>) => {
+        state.loading = false,
+        state.selectedCountrie = action.payload
+      })
+      .addCase(fetchCountrie.rejected, (state) => {
+        state.loading = false,
+        state.error = "An error has ocurred fetching the countrie data."
       })
   }
 })

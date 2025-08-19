@@ -7,7 +7,7 @@ export const Sidebar = () => {
   console.log(pathname)
 
   return (
-    <aside className="w-64 h-screen bg-gray-900 text-white p-4">
+    <aside className="w-64 h-screen bg-gray-900 text-white p-4 fixed">
       <h2 className="text-xl font-bold mb-6">Mi App</h2>
       <nav>
         <ul className="space-y-2">

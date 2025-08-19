@@ -19,13 +19,16 @@ function FilterInput() {
   }
 
   return (
-    <select name="region" value={region} onChange={handleChange}>
-      <option value="Europe">Europa</option>
-      <option value="America">America</option>
-      <option value="Asia">Asia</option>
-      <option value="Oceania">Oceania</option>
-      <option value="Africa">Africa</option>
-    </select>
+    <label htmlFor="region" className='flex flex-col space-y-2'>
+      <span className='text-sm font-medium text-gray-700'>Choose by Region</span>
+      <select className='w-1/5 h-10 rounded border-1 border-gray-300 shadow-sm sm:text-sm pl-3' name="region" id='region' value={region} onChange={handleChange}>
+        <option value="Europe">Europa</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Africa">Africa</option>
+      </select>
+    </label>
   )
 }
 

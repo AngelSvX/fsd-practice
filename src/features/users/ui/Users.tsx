@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { fetchUsers, fetchUser } from "../model/thunks"
 import { Outlet, useNavigate } from "react-router"
+import LoaderMessage from "../../../shared/ui/Loader/LoaderMessage"
+import ErrorMessage from "../../../shared/ui/ErrorMessage/ErrorMessage"
 
 function Users() {
 
@@ -16,9 +18,9 @@ function Users() {
     dispatch(fetchUsers())
   }, [dispatch])
 
-  if (loading) { return <p className="text-blue-950 text-2xl font-bold">Cargando...</p> }
+  if (loading) { return <LoaderMessage message="Cargando datos..." /> }
 
-  if (error) { return <p className="text-red-500 text-2xl font-bold">{error}</p> }
+  if (error) { return <ErrorMessage message={error} /> }
 
   return (
     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
@@ -45,7 +47,7 @@ function Users() {
           </li>
         )
       })}
-      <Outlet/>
+      <Outlet />
     </ul>
   )
 }

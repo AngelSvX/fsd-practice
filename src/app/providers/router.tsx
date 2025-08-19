@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UsersPage from "../../pages/users/UsersPage";
 import UserPage from "../../pages/users/UserPage";
 import { Layout } from "../../shared/layouts/Layout";
-import Countries from "../../features/countries/ui/Countries";
+import CountriesPage from "../../pages/countries/CountriesPage";
+import CountriePage from "../../pages/countries/CountriePage";
 
 const router = createBrowserRouter([
   {
@@ -23,13 +24,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/countries',
-        element: <Countries/>
+        element: <CountriesPage/>
+      },
+      {
+        path: '/countrie/:id',
+        element: <CountriePage/>
       }
     ]
   },
   {
     path: '*',
-    element: "ERROR 404 NOT FOUND UWU"
+    element: "ERROR 404 NOT FOUND"
   }
 ])
 
