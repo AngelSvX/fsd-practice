@@ -6,6 +6,8 @@ export const initialState: CountriesState = {
   countrieList: [],
   selectedRegion: "Europe" ,
   selectedCountrie: null,
+  filteredCountries: null,
+  isFilterCountries: false,
   loading: false,
   error: null
 }
@@ -16,6 +18,10 @@ export const countriesSlice = createSlice({
   reducers: {
     setRegion: (state, action: PayloadAction<Region>) => {
       state.selectedRegion = action.payload
+    },
+    setCountries: (state, action: PayloadAction<Countrie[]>) => {
+      state.filteredCountries = action.payload
+      state.isFilterCountries = true
     }
   },
   extraReducers: (builder) => {
@@ -48,5 +54,5 @@ export const countriesSlice = createSlice({
   }
 })
 
-export const { setRegion } = countriesSlice.actions
+export const { setRegion, setCountries } = countriesSlice.actions
 export default countriesSlice.reducer

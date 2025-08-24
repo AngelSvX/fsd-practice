@@ -36,6 +36,8 @@ export interface CountriesState {
   countrieList: Countrie[];
   selectedRegion: Region
   selectedCountrie: Countrie | null;
+  filteredCountries: Countrie[] | null;
+  isFilterCountries: boolean
   loading: boolean;
   error: string | null;
 }
